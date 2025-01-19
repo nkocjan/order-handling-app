@@ -1,0 +1,17 @@
+Basket:
+  type: object
+  properties:
+    id:
+      type: string
+    quantity:
+      type: number
+    user_id:
+      type: string
+    product_id:
+      type: string
+
+  required:
+    - id
+    - user_id
+    - quantity
+    - product_id

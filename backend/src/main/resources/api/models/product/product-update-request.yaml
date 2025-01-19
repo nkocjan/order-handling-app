@@ -1,0 +1,15 @@
+ProductUpdateRequest:
+  type: object
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    description:
+      type: string
+    buy_price:
+      type: number
+    sell_price:
+      type: number
+  required:
+    - id

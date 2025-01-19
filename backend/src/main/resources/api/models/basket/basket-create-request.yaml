@@ -1,0 +1,14 @@
+BasketCreateRequest:
+  type: object
+  properties:
+    quantity:
+      type: number
+    user_id:
+      type: string
+    product_id:
+      type: string
+
+  required:
+    - user_id
+    - quantity
+    - product_id

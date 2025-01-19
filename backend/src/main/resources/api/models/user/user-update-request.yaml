@@ -1,0 +1,16 @@
+UserUpdateRequest:
+  type: object
+  properties:
+    id:
+      type: string
+    login:
+      type: string
+    password:
+      type: string
+    email:
+      type: string
+  required:
+    - id
+    - login
+    - password
+    - email

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "order-handling-app",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

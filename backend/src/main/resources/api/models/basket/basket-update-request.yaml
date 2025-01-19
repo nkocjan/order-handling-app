@@ -1,0 +1,10 @@
+BasketUpdateRequest:
+  type: object
+  properties:
+    id:
+      type: string
+    quantity:
+      type: number
+
+  required:
+    - quantity

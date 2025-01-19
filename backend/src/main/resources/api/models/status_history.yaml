@@ -1,0 +1,16 @@
+StatusHistory:
+  type: object
+  properties:
+    id:
+      type: string
+    operation_date:
+      type: string
+    old_status:
+      type: string
+    new_status:
+      type: string
+  required:
+    - id
+    - operation_date
+    - old_status
+    - new_status

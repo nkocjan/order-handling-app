@@ -1,0 +1,13 @@
+OrderCreateRequest:
+  type: object
+  properties:
+    user_id:
+      type: string
+    price:
+      type: number
+    profit:
+      type: number
+  required:
+    - user_id
+    - price
+    - profit

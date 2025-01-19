@@ -1,0 +1,13 @@
+Object:
+  type: object
+  properties:
+    id:
+      type: string
+    status:
+      type: string
+    product_id:
+      type: string
+  required:
+    - id
+    - status
+    - product_id

@@ -1,0 +1,20 @@
+meta {
+  name: update
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:8080/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": "1b9dc6e6-cd0f-4707-8534-5e94243895a3",
+    "login": "nkocjan2",
+    "password": "Password123",
+    "email": "wawciad@onetd222.pl"
+  }
+}

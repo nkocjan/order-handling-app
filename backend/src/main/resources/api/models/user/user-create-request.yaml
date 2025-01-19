@@ -1,0 +1,13 @@
+UserCreateRequest:
+  type: object
+  properties:
+    login:
+      type: string
+    password:
+      type: string
+    email:
+      type: string
+  required:
+    - login
+    - password
+    - email

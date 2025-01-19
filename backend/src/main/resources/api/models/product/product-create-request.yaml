@@ -1,0 +1,15 @@
+ProductCreateRequest:
+  type: object
+  properties:
+    name:
+      type: string
+    description:
+      type: string
+    buy_price:
+      type: number
+    sell_price:
+      type: number
+  required:
+    - name
+    - buy_price
+    - sell_price

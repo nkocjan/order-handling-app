@@ -1,0 +1,23 @@
+meta {
+  name: create
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/user
+  body: json
+  auth: none
+}
+
+headers {
+  : 
+}
+
+body:json {
+  {
+    "login": "nkocjan",
+    "password": "Password1",
+    "email": "wawciad@onetd.pl"
+  }
+}

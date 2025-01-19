@@ -1,0 +1,209 @@
+openapi: 3.0.1
+info:
+  title: Order API
+  version: 1.0.0
+paths:
+  /user:
+    post:
+      operationId: create new user
+      summary: Create new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/user/user-create-request.yaml#/UserCreateRequest'
+      responses:
+        '200':
+          description: Create response
+          content:
+            application/json:
+              schema:
+                $ref: './models/user/user.yaml#/User'
+        '400':
+          description: Bad request
+
+    patch:
+      operationId: patch user
+      summary: Paths user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/user/user-update-request.yaml#/UserUpdateRequest'
+      responses:
+        200:
+          description: User edited
+          content:
+            application/json:
+              schema:
+                $ref: './models/user/user.yaml#/User'
+
+    get:
+      operationId: get all users
+      summary: Get all users
+      responses:
+        200:
+          description: Get all users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './models/user/user.yaml#/User'
+
+  /user/{id}:
+    get:
+      operationId: get user by id
+      summary: Get user by id
+      description: Get user by specific id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of user
+          schema:
+            type: string
+      responses:
+        200:
+          description: Succesful
+          content:
+            application/json:
+              schema:
+                $ref: './models/user/user.yaml#/User'
+        404:
+          description: User not found
+
+    delete:
+      operationId: delete user
+      summary: Delete user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of user
+          schema:
+            type: string
+      responses:
+        200:
+          description: User deleted
+
+
+
+  /product:
+    get:
+      operationId: get all products
+      summary: Get all products
+      responses:
+        200:
+          description: Get all products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './models/product/product.yaml#/Product'
+
+    post:
+      operationId: create new product
+      summary: Create new product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/product/product-create-request.yaml#/ProductCreateRequest'
+      responses:
+        '200':
+          description: Product created
+          content:
+            application/json:
+              schema:
+                $ref: './models/product/product.yaml#/Product'
+        '400':
+          description: Bad request
+
+    patch:
+      operationId: patch product
+      summary: Patch product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/product/product-update-request.yaml#/ProductUpdateRequest'
+      responses:
+        200:
+          description: Product edited
+          content:
+            application/json:
+              schema:
+                $ref: './models/product/product.yaml#/Product'
+
+  /product/{id}:
+    get:
+      operationId: get product by id
+      summary: Get product by id
+      description: Get product by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of product
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: './models/product/product.yaml#/Product'
+        404:
+          description: User not found
+
+    delete:
+      operationId: delete product
+      summary: Delete product
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of product
+          schema:
+            type: string
+      responses:
+        200:
+          description: User deleted
+
+  /orders:
+    get:
+      operationId: get orders for single user
+      summary: Get orders for user by JWT
+      responses:
+        '200':
+          description: A list of orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './models/order/order.yaml#/Order'
+
+    post:
+      operationId: create new order
+      summary: Create order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/order/order-create-request.yaml#/OrderCreateRequest'
+      responses:
+        '200':
+          description: Create response
+          content:
+            application/json:
+              schema:
+                $ref: './models/order/order.yaml#/Order'
