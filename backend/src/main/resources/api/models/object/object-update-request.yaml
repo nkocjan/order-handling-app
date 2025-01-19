@@ -1,13 +1,13 @@
-Object:
+ObjectUpdateRequest:
   type: object
   properties:
     id:
       type: string
     status:
       type: string
-    product_id:
+    order_id:
       type: string
+    price:
+      type: number
   required:
     - id
-    - status
-    - product_id

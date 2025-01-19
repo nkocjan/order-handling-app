@@ -1,0 +1,11 @@
+ObjectCreateRequest:
+  type: object
+  properties:
+    status:
+      type: string
+    product_id:
+      type: string
+    price:
+      type: number
+  required:
+    - product_id

@@ -67,7 +67,7 @@ paths:
             type: string
       responses:
         200:
-          description: Succesful
+          description: Successful
           content:
             application/json:
               schema:
@@ -179,8 +179,8 @@ paths:
 
   /orders:
     get:
-      operationId: get orders for single user
-      summary: Get orders for user by JWT
+      operationId: get all orders
+      summary: Get all orders
       responses:
         '200':
           description: A list of orders
@@ -202,8 +202,326 @@ paths:
               $ref: './models/order/order-create-request.yaml#/OrderCreateRequest'
       responses:
         '200':
-          description: Create response
+          description: Order created
           content:
             application/json:
               schema:
                 $ref: './models/order/order.yaml#/Order'
+
+    patch:
+      operationId: patch order
+      summary: Patch order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/order/order-update-request.yaml#/OrderUpdateRequest'
+      responses:
+        200:
+          description: Order edited
+          content:
+            application/json:
+              schema:
+                $ref: './models/order/order.yaml#/Order'
+
+
+  /orders/{id}:
+    get:
+      operationId: get order by id
+      summary: Get order by id
+      description: Get order by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of order
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: './models/order/order.yaml#/Order'
+        404:
+          description: Order not found
+
+    delete:
+      operationId: delete order
+      summary: Delete order
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of order
+          schema:
+            type: string
+      responses:
+        200:
+          description: Order deleted
+        404:
+          description: Order not found
+
+  /objects:
+    get:
+      operationId: get all objects
+      summary: Get all objects
+      responses:
+        '200':
+          description: A list of objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './models/object/object.yaml#/Object'
+
+    post:
+      operationId: create new object
+      summary: Create new object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/object/object-create-request.yaml#/ObjectCreateRequest'
+      responses:
+        '200':
+          description: Create response
+          content:
+            application/json:
+              schema:
+                $ref: './models/object/object.yaml#/Object'
+
+    patch:
+      operationId: patch object
+      summary: Patch object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/object/object-update-request.yaml#/ObjectUpdateRequest'
+      responses:
+        200:
+          description: Object edited
+          content:
+            application/json:
+              schema:
+                $ref: './models/object/object.yaml#/Object'
+
+
+  /objects/{id}:
+    get:
+      operationId: get object by id
+      summary: Get object by id
+      description: Get object by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of object
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: './models/object/object.yaml#/Object'
+        404:
+          description: Order not found
+
+    delete:
+      operationId: delete object
+      summary: Delete object
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of object
+          schema:
+            type: string
+      responses:
+        200:
+          description: Object deleted
+        404:
+          description: Object not found
+
+  /baskets:
+    get:
+      operationId: get all baskets
+      summary: Get all baskets
+      responses:
+        '200':
+          description: A list of baskets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './models/basket/basket.yaml#/Basket'
+
+    post:
+      operationId: create new basket
+      summary: Create new basket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/basket/basket-create-request.yaml#/BasketCreateRequest'
+      responses:
+        '200':
+          description: Basket created
+          content:
+            application/json:
+              schema:
+                $ref: './models/basket/basket.yaml#/Basket'
+
+    patch:
+      operationId: patch basket
+      summary: Patch basket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/basket/basket-update-request.yaml#/BasketUpdateRequest'
+      responses:
+        200:
+          description: Object edited
+          content:
+            application/json:
+              schema:
+                $ref: './models/basket/basket.yaml#/Basket'
+
+
+  /baskets/{id}:
+    get:
+      operationId: get basket by id
+      summary: Get basket by id
+      description: Get basket by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of basket
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: './models/basket/basket.yaml#/Basket'
+        404:
+          description: Order not found
+
+    delete:
+      operationId: delete basket
+      summary: Delete basket
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of basket
+          schema:
+            type: string
+      responses:
+        200:
+          description: Basket deleted
+        404:
+          description: Basket not found
+
+  /status-histories:
+    get:
+      operationId: get all status histories
+      summary: Get all status histories
+      responses:
+        '200':
+          description: A list of status histories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './models/status_history/status_history.yaml#/StatusHistory'
+
+    post:
+      operationId: create new status history
+      summary: Create new status history
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/status_history/status_history-create-request.yaml#/StatusHistoryCreateRequest'
+      responses:
+        '200':
+          description: Status history created
+          content:
+            application/json:
+              schema:
+                $ref: './models/status_history/status_history.yaml#/StatusHistory'
+
+    patch:
+      operationId: patch status history
+      summary: Patch status history
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './models/status_history/status_history-update-request.yaml#/StatusHistoryUpdateRequest'
+      responses:
+        200:
+          description: Status history edited
+          content:
+            application/json:
+              schema:
+                $ref: './models/status_history/status_history.yaml#/StatusHistory'
+
+
+  /status-histories/{id}:
+    get:
+      operationId: get status history by id
+      summary: Get status history by id
+      description: Get status history by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of status history
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                $ref: './models/status_history/status_history.yaml#/StatusHistory'
+        404:
+          description: Status history not found
+
+    delete:
+      operationId: delete status history
+      summary: Delete status history
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Unique id of status history
+          schema:
+            type: string
+      responses:
+        200:
+          description: Status history deleted
+        404:
+          description: Status history not found
+

@@ -9,8 +9,11 @@ Order:
       type: number
     profit:
       type: number
+    order_date:
+      type: string
   required:
     - id
     - user_id
     - price
     - profit
+    - order_date

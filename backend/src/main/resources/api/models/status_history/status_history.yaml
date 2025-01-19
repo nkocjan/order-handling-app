@@ -9,8 +9,11 @@ StatusHistory:
       type: string
     new_status:
       type: string
+    object_id:
+      type: string
   required:
     - id
     - operation_date
     - old_status
     - new_status
+    - object_id

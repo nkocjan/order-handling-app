@@ -1,13 +1,18 @@
 OrderUpdateRequest:
   type: object
   properties:
+    id:
+      type: string
     user_id:
       type: string
     price:
       type: number
     profit:
       type: number
+    order_date:
+      type: string
   required:
     - user_id
     - price
     - profit
+    - order_date

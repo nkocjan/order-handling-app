@@ -5,6 +5,5 @@ BasketUpdateRequest:
       type: string
     quantity:
       type: number
-
   required:
     - quantity
